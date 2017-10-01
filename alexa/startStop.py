@@ -50,8 +50,7 @@ def get_welcome_response():
 
     session_attributes = {}
     card_title = "Welcome"
-    speech_output = "Welcome to the Alexa Skills Kit for transcribing. " \
-                    "Would you like me to start or stop transcribing? "
+    speech_output = "Would you like to start or stop transcribing."
                     
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
@@ -94,15 +93,15 @@ def set_transcribe_in_session(intent, session):
             reprompt_text = "You can ask me to start or stop transcribing by saying, " \
                             "start transcribing or start transcribing."            
             debug = "starting reading"
-            captioning = urllib.request.urlopen("https://faa580b6.ngrok.io/start").read()
+            captioning = urllib.request.urlopen("https://9a1a73b0.ngrok.io/start").read()
         if startStop == "stop transcribing":
             speech_output = "I will " + \
                             "stop transcribing." + \
-                            ". You can ask me to stop transcribing anytime."
+                            ". You can ask me to start transcribing again anytime."
             reprompt_text = "You can ask me to start or stop transcribing by saying, " \
                             "start transcribing or start transcribing."
             debug = "stopping reading"
-            captioning = urllib.request.urlopen("https://faa580b6.ngrok.io/stop").read()           
+            captioning = urllib.request.urlopen("https://9a1a73b0.ngrok.io/stop").read()           
     else:
         speech_output = "I'm not sure what you are trying to say. " \
                         "Please try again."

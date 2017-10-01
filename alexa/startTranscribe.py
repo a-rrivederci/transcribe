@@ -56,7 +56,7 @@ def get_welcome_response():
     reprompt_text = "You can ask me to start or stop transcribing by saying, " \
                     "start transcribing or start transcribing."            
     debug = "starting reading"
-    captioning = urllib.request.urlopen("https://faa580b6.ngrok.io/start").read()
+    captioning = urllib.request.urlopen("https://9a1a73b0.ngrok.io/start").read()
     #print(captioning)
     print(speech_output)
     should_end_session = True
@@ -90,7 +90,7 @@ def set_transcribe_in_session(intent, session):
     reprompt_text = "You can ask me to start or stop transcribing by saying, " \
                     "start transcribing or start transcribing."            
     debug = "starting reading"
-    captioning = urllib.request.urlopen("https://faa580b6.ngrok.io/start").read()
+    captioning = urllib.request.urlopen("https://9a1a73b0.ngrok.io//start").read()
     #print(captioning)
     print(speech_output)
     should_end_session = True
