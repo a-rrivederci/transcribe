@@ -20,7 +20,8 @@ async function start() {
 
     sharedInstance.server.get('/stop', Middlewares.stop);
 
-    sharedInstance.io.on('connection', (socket) => {    
+    sharedInstance.io.on('connection', (socket) => { 
+        console.log('Client Connected!');  
     });
 
     // Start server
