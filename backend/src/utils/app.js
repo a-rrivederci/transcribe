@@ -19,14 +19,24 @@ async function start() {
     sharedInstance.server.get('/start', Middlewares.start);
 
     sharedInstance.server.get('/stop', Middlewares.stop);
+    
+    sharedInstance.clients = -1;
 
     sharedInstance.io.on('connection', (socket) => { 
         console.log('Client Connected!');
+        sharedInstance.clients++;
+        socket.broadcast.emit('update_client_count', sharedInstance.clients);
         socket.on('voice_captions', (voiceCaptions) => {
             socket.broadcast.emit('app_captions', voiceCaptions);
             console.log(voiceCaptions);
         });
+        socket.on('disconnect', () => {
+            sharedInstance.clients--;
+            socket.broadcast.emit('update_client_count', sharedInstance.clients);
+        });
     });
+
+    
 
     // Start server
     sharedInstance.httpServer.listen(process.env.PORT || 8080);

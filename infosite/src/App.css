@@ -43,7 +43,7 @@ headerbg {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url(ashreilla.png);
+  background: url(./images/ashreilla.png);
   background-size: cover;
 }
 
@@ -71,7 +71,8 @@ p {
 }
 
 p#img {
-  padding:10px;
+  padding-top: 10px;
+  height: 70vh;
 }
 
 footer {
