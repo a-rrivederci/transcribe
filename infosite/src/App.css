@@ -1,28 +1,70 @@
-.App {
-  text-align: center;
+/* Main Css */
+div#container {
+  width: 100vh;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+div.views {
+  display: block;
+  height: 100vh;
+  background:#fff;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+div#footer {
+  height: fit-content
 }
 
-.App-title {
-  font-size: 1.5em;
+header {
+  display: flex;
+  height: 10vh;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #fff;
+  background: rgba(0,0,0,0.8);
 }
 
-.App-intro {
-  font-size: large;
+div#datetime {
+  font-family: 'Audiowide', cursive;
+  color: #fff/*rgba(0,0,0,0.6)*/;
+  font-size: 13px;
+  font-weight: 100;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+ld {
+  height: fit-content;
+  color:#fff;
+  font-size: 100px;
+  font-family: 'Raleway', sans-serif;
+}
+
+headerbg {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: orangered;
+}
+
+hd {
+  display: block;
+  color:orangered;
+  height: 10vh;
+  padding: 20px 20px 0 20px;
+  font-size: 40px;
+}
+
+p {
+  margin: 0;
+  font-size: 30px;
+  padding: 20px 20px 0 20px; 
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  background: rgba(0,0,0,0.8);
+  padding-left: 20px;
+  color: #fff;
 }

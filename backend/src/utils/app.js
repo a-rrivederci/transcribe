@@ -24,8 +24,6 @@ async function start() {
         console.log('Client Connected!');
         socket.on('voice_captions', (voiceCaptions) => {
             socket.emit('app_captions', voiceCaptions);
-        });
-        socket.on('voice_captions', (voiceCaptions) => {
             console.log(voiceCaptions);
         });
     });
