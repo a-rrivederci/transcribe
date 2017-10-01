@@ -8,13 +8,16 @@
         };
         var socket = io.connect('http://localhost:8080',options);
         socket.on('connect', function() {
-        document.getElementById("stat").innerHTML = "connected to nerve";
+            document.getElementById("stat").innerHTML = "connected to nerve";
         });
         socket.on('start_captioning', function(msg) {
-        console.log(msg);
+            console.log(msg);
         });
         socket.on('stop_captioning', function(msg) {
-        console.log(msg);
+            console.log(msg);
+        });
+        socket.on('app_captions', function(msg) {
+            console.log(msg);
         });
     </script>
     </head>
