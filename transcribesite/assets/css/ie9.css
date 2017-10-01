@@ -1,0 +1,11 @@
+/*
+	Highlights by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+*/
+
+/* Loader */
+
+	html body:before, html body:after {
+		display: none !important;
+	}
