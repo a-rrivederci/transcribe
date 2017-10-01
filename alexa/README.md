@@ -1,6 +1,7 @@
 # Alexa Skill
 ```json
-Alexa intent schema:
+*startStop*
+#Alexa intent schema:
 {
   "intents": [
     {
@@ -30,3 +31,63 @@ startStopIsIntent Can you {startStop} please
 startStopIsIntent {startStop}
 startStopIsIntent Please {startStop}
 ```
+*startTranscribe*
+
+#Alexa intent schema:
+{
+  "intents": [
+    {
+      "slots": [
+        {
+          "name": "startTrans",
+          "type": "START_TRANS"
+        }
+      ],
+      "intent": "startTransIsIntent"
+    },
+    {
+      "intent": "startTransIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    }
+  ]
+}
+
+#Utterance:
+startTransIsIntent Can I {startTrans}
+startTransIsIntent Can you {startTrans}
+startTransIsIntent Can I {startTrans} please
+startTransIsIntent Can you {startTrans} please
+startTransIsIntent {startTrans}
+startTransIsIntent Please {startTrans}
+
+*stopTranscribe*
+#Alexa intent schema:
+{
+  "intents": [
+    {
+      "slots": [
+        {
+          "name": "stopTrans",
+          "type": "STOP_TRANS"
+        }
+      ],
+      "intent": "stopTransIsIntent"
+    },
+    {
+      "intent": "stopTransIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    }
+  ]
+}
+
+#Utterance:
+stopTransIsIntent Can I {stopTrans}
+stopTransIsIntent Can you {stopTrans}
+stopTransIsIntent Can I {stopTrans} please
+stopTransIsIntent Can you {stopTrans} please
+stopTransIsIntent {stopTrans}
+stopTransIsIntent Please {stopTrans}
