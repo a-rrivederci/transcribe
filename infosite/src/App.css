@@ -19,7 +19,7 @@ header {
   align-items: center;
   justify-content: center;
   width: 100%;
-  color: #fff;
+  color: #339966;
   background: rgba(0,0,0,0.8);
 }
 
@@ -32,9 +32,9 @@ div#datetime {
 
 ld {
   height: fit-content;
-  color:#fff;
+  color:#339966;
   font-size: 100px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Audiowide', sans-serif;
 }
 
 headerbg {
@@ -43,21 +43,35 @@ headerbg {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: orangered;
+  background: url(ashreilla.png);
+  background-size: cover;
+}
+
+subheader {
+  font-size: 25px;
 }
 
 hd {
   display: block;
-  color:orangered;
+  color:#339966;
   height: 10vh;
   padding: 20px 20px 0 20px;
   font-size: 40px;
+  font-family: 'Audiowide', sans-serif;
 }
 
 p {
+  display: flex;
   margin: 0;
   font-size: 30px;
-  padding: 20px 20px 0 20px; 
+  height: 80vh;
+
+  padding: 50px 50px 0 50px; 
+  justify-content:center;
+}
+
+p#img {
+  padding:10px;
 }
 
 footer {

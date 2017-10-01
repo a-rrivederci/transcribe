@@ -17,16 +17,11 @@ function Inspiration(props) {
   return(
     <View>
       <hd>Inspiration</hd>
-      <p>Deux Ex in pacemoiaoiaia aoinaioaw aoinawif aweionawweawiwefoe e owaeifoiawemfiwaoeiwae iawoimfioawwmeioawefioaweie wao fioawefiaweawoefoaw efoiwaef wfiweo woifmw efwo  efiwmaeomf</p>
-    </View>
-  );
-}
-
-function About(props) {
-  return(
-    <View>
-      <hd>About</hd>
-      <p>aonfaoweifowaiefwoemfopwefmoweowpeofwpefw</p>
+      <p>
+        Transcribe stemmed from a process we noticed was missing during lectures and conferences.
+        Closed Captioning is a service provided for movies and entertainment to allow for people who are visually imparied partake in the program and subtitles for media in other languages than ones own.
+        We wanted to combine the worlds of captioning and learning by facilitating real-time continuous speech conversion and displaying.
+      </p>
     </View>
   );
 }
@@ -35,7 +30,9 @@ function HowItWorks(props) {
   return(
     <View>
       <hd>How It Works</hd>
-      <p>a[f,aep[wa[pefw[pew[pewepwefwef[pwe[pw wewfpmwpeomfw wpeofmwefkewfw wepf</p>
+      <p id="img">
+        <img src= { require('./ashreilla.png') }/>
+      </p>
     </View>
   );
 }
@@ -54,7 +51,6 @@ class App extends Component {
       <div id="conatainer">
         <Header />
         <Inspiration />
-        <About />
         <HowItWorks />
         <Footer />
       </div>
