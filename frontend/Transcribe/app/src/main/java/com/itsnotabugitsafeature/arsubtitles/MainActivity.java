@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final TextView helloTextView = (TextView) findViewById(R.id.text_view_id);
         helloTextView.setText(R.string.transcribedText);
-
         try {
             mCamera = Camera.open();//you can use open(int) to use different cameras
         } catch (Exception e) {
