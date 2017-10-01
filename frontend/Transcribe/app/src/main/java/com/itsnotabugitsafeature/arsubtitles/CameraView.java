@@ -1,6 +1,7 @@
 package com.itsnotabugitsafeature.arsubtitles;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.hardware.Camera;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -22,7 +23,15 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback{
         super(context);
 
         mCamera = camera;
-        mCamera.setDisplayOrientation(90);
+
+        int orientation = this.getResources().getConfiguration().orientation;
+
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            mCamera.setDisplayOrientation(90);
+        } else {
+            mCamera.setDisplayOrientation(0);
+        }
+
         //get the holder and set this class as the callback, so we can get camera data here
         mHolder = getHolder();
         mHolder.addCallback(this);
