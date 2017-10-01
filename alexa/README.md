@@ -30,7 +30,7 @@ startStopIsIntent Can I {startStop} please
 startStopIsIntent Can you {startStop} please
 startStopIsIntent {startStop}
 startStopIsIntent Please {startStop}
-```
+
 *startTranscribe*
 
 #Alexa intent schema:
@@ -91,3 +91,4 @@ stopTransIsIntent Can I {stopTrans} please
 stopTransIsIntent Can you {stopTrans} please
 stopTransIsIntent {stopTrans}
 stopTransIsIntent Please {stopTrans}
+```
