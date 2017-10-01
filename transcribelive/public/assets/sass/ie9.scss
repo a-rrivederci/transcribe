@@ -1,0 +1,20 @@
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/skel';
+
+/*
+	Highlights by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+*/
+
+/* Loader */
+
+	html {
+		body {
+			&:before, &:after {
+				display: none !important;
+			}
+		}
+	}
