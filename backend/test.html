@@ -1,0 +1,43 @@
+<html>
+<head><script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script>
+        //var socket = io.connect('https://nerved.herokuapp.com');
+        var options = {
+        transports: ['websocket'],
+        'force new connection': true
+        };
+        var socket = io.connect('http://localhost:8080',options);
+        socket.on('connect', function() {
+        document.getElementById("stat").innerHTML = "connected to nerve";
+        });
+        socket.on('start_captioning', function(msg) {
+        console.log(msg);
+        });
+        socket.on('stop_captioning', function(msg) {
+        console.log(msg);
+        });
+    </script>
+    </head>
+    <body><p id="stat">server status unknown</p></body>
+    </html><head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script>
+        //var socket = io.connect('https://nerved.herokuapp.com');
+        var options = {
+        transports: ['websocket'],
+        'force new connection': true
+        };
+        var socket = io.connect('http://localhost:8080',options);
+        socket.on('connect', function() {
+    
+        });
+        socket.on('start_captioning', function(msg) {
+            document.getElementById("stat").innerHTML = "Started Captioning";
+        });
+        socket.on('stop_captioning', function(msg) {
+            document.getElementById("stat").innerHTML = "Stopped Captioning";
+        });
+    </script>
+</head>
+<body><p id="stat">server status unknown</p></body>
+</html>

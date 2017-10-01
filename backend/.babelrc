@@ -1,0 +1,6 @@
+{
+  "presets": ["es2015", "stage-0"],
+  "plugins": ["syntax-async-functions","transform-regenerator"],
+  "sourceMaps": "inline",
+  "retainLines": true
+}

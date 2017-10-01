@@ -1,0 +1,24 @@
+root: true
+
+extends: r1cebank
+
+rules:
+
+  no-return-assign: off
+  no-lonely-if: off
+  arrow-body-style: off
+  array-callback-return: off
+  dot-notation: warn
+  max-len:
+    - error
+    - 120
+  indent:
+    - error
+    - 4
+    -
+      SwitchCase: 1
+
+envs:
+  node: true
+  commonjs: true
+  browser: false
