@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     {
         try {
             //try to connect to the socket
-            mSocket = IO.socket("https://300af425.ngrok.io/");
+            mSocket = IO.socket("https://1d496ef7.ngrok.io");
         } catch (URISyntaxException e) {}
 
     }
