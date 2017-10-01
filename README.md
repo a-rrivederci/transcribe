@@ -17,4 +17,4 @@ The Node backend server runs continoulsy and receives a signal from the lambda f
 Recieves text from server and then displays text as subtitles in augmented reality. App uses camera on back of phone for the augmented reality.
 
 ## Front end website
-Recieves start and stop signal from server to start and stop transcribing microphone audio to text using google transcribe api. Then sends Transcriptions as text to server to be sent to Mobile App.
+Recieves start and stop signal from server to start and stop transcribing microphone audio to text using google transcribe api. Then sends Transcriptions as text to server to be sent to Mobile App. Can Understand and Transcribe many different languages.
