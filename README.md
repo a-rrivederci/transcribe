@@ -1,7 +1,8 @@
 # transcribe
 transcribe.tech
 
-
+# Alexa Skill
+```json
 Alexa intent schema:
 {
   "intents": [
@@ -23,6 +24,7 @@ Alexa intent schema:
   ]
 }
 
+# Utterances
 sample utterence:
 startStopIsIntent Can I {startStop}
 startStopIsIntent Can you {startStop}
@@ -30,3 +32,4 @@ startStopIsIntent Can I {startStop} please
 startStopIsIntent Can you {startStop} please
 startStopIsIntent {startStop}
 startStopIsIntent Please {startStop}
+```
