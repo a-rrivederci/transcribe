@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private CameraView mCameraView = null;
 
     private String TAG = "Transcribe";
-    TextView helloTextView;
+    TextView captionsTextView;
 
 
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    helloTextView.setText((String) args[0]);
+                    captionsTextView.setText( (String) args[0]);
                 }
             });
         }
@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         //draw string onto screen
-        helloTextView = (TextView) findViewById(R.id.text_view_id);
-        helloTextView.setText(R.string.transcribedText);
+        captionsTextView = (TextView) findViewById(R.id.text_view_id);
+        captionsTextView.setText(R.string.transcribedText);
 
         //open camera junk
         try {
