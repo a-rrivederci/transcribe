@@ -9,78 +9,79 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-    <style>
-      * {
-        font-family: Verdana, Arial, sans-serif;
-      }
-      a:link {
-        color:#000;
-        text-decoration: none;
-      }
-      a:visited {
-        color:#000;
-      }
-      a:hover {
-        color:#33F;
-      }
-      .center {
-        padding: 10px;
-        text-align: center;
-      }
-      .final {
-        color: black;
-        padding-right: 3px; 
-        margin-top: 200px;
-      }
-      .interim {
-        color: gray;
-      }
-      .info {
-        font-size: 14px;
-        text-align: center;
-        color: #777;
-        display: none;
-      }
-      .right {
-        float: right;
-      }
-      #headline {
-        font-size: 40px;
-        font-weight: 300;
-      }
-      #info {
-        font-size: 20px;
-        text-align: center;
-        color: #777;
-        visibility: hidden;
-      }
-      #results {
-        font-size: 14px;
-        font-weight: bold;
-        border: 1px solid #ddd;
-        padding: 15px;
-        text-align: left;
-        min-height: 150px;
-      }
-      #start_button {
-        border: 0;
-        background-color:transparent;
-        padding: 0;
-      }
-    </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+        <style>
+  * {
+    font-family: Verdana, Arial, sans-serif;
+  }
+  a:link {
+    color:#000;
+    text-decoration: none;
+  }
+  a:visited {
+    color:#000;
+  }
+  a:hover {
+    color:#33F;
+  }
+  .center {
+    padding: 10px;
+    text-align: center;
+  }
+  .final {
+    color: black;
+    padding-right: 3px; 
+    margin-top: 200px;
+  }
+  .interim {
+    color: gray;
+  }
+  .info {
+    font-size: 14px;
+    text-align: center;
+    color: #777;
+    display: none;
+  }
+
+  #headline {
+    font-size: 40px;
+    font-weight: 300;
+  }
+  #info {
+    font-size: 20px;
+    text-align: center;
+    color: #777;
+    visibility: hidden;
+  }
+  #results {
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+    min-height: 150px;
+  }
+  #start_button {
+    border: 0;
+    background-color:transparent;
+    padding: 0;
+  }
+</style>
 	</head>
 	<body>
 		<!-- Header -->
 			<section id="header">
 				<header class="major">
 					<h1>Transcribe</h1>
-					<p>It's Not A Bug It's A Feature</p>
+                    <a href="https://itsnotabugitsafeature.github.io/transcribe"><p>It's Not A Bug It's A Feature</p></a>
 				</header>
 				<div class="container" style="top:400px">
 					<ul class="actions">
-                        <li><a href="#one" class="button special scrolly" onclick="startButton(event)">Manually Start Recording</a></li>
+                        <li><a href="#one" class="button special scrolly" style="background-color:#339966">Start By Saying "Alexa, Transcribe"</a></li>
 					</ul>
+					<span id="num_clients">
+					    Number of Users: 0
+					</span>
 					<div id="info">
                         <p id="info_start"></p>
                         <p id="info_speak_now">Speak now.</p>
@@ -97,18 +98,19 @@
                             go to chrome://settings/contentExceptions#media-stream</p>
                         <p id="info_upgrade">Web Speech API is not supported by this browser.
                             Upgrade to <a href="//www.google.com/chrome">Chrome</a>
-                            version 25 or later.</p>
+                            version 25 or later.</p>           
                     </div>
-                    <div class="right">
-<!--
-                        <button id="start_button" onclick="startButton(event)">
-                            <img id="start_img" src="images/mic.gif" alt="Start"></button>
--->
-                    </div>
+
                     <div id="results">
                         <span id="final_span" class="final"></span>
                         <span id="interim_span" class="interim"></span>
                         <p>
+                    </div>
+                    <div>
+                        <br />
+                        <ul class="actions">
+                        <li><a href="#one" class="button special scrolly" onclick="startButton(event)">Manually Start Recording</a></li>
+					</ul>
                     </div>
                     <div class="center">
                     <p>
@@ -342,7 +344,7 @@ function showButtons(style) {
     transports: ['websocket'],
     'force new connection': true
   };
-  var socket = io.connect('https://faa580b6.ngrok.io',options);
+  var socket = io.connect('https://9a1a73b0.ngrok.io/',options);
   socket.on('connect', function() {
       console.log('Connected');
   });
@@ -353,6 +355,11 @@ function showButtons(style) {
   socket.on('stop_transcribing', function(msg) {
       console.log('stopped');
     startButton();
+    });
+    
+    socket.on('update_client_count', function(msg) {
+      console.log('updated');
+        document.getElementById("num_clients").innerHTML="Number of Users: "+msg;
     });
 </script>
 	</body>

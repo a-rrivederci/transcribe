@@ -1304,7 +1304,7 @@
 	html {
 		background-color: #313a3d;
 		background-attachment: fixed,						fixed;
-		background-image: url("images/overlay.png"), url("../../images/bg0.jpg");
+		background-image: url("images/overlay.png"), url("../../images/bg2.jpg");
 		background-position: top left,					center center;
 		background-repeat: repeat,						none;
 		background-size: auto,						cover;
@@ -2538,7 +2538,7 @@
 		input[type="button"].special,
 		button.special,
 		.button.special {
-			background-color: #8cd1a8;
+			background-color: #d9d9d9;
 			border: 0;
 			box-shadow: none;
 			color: #ffffff !important;
