@@ -3,7 +3,7 @@ root: true
 extends: r1cebank
 
 rules:
-
+  no-console: off
   no-return-assign: off
   no-lonely-if: off
   arrow-body-style: off
