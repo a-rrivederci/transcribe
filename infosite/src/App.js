@@ -31,7 +31,7 @@ function HowItWorks(props) {
     <View>
       <hd>How It Works</hd>
       <p id="img">
-        <img src= { require('./ashreilla.png') }/>
+        <img src= { require('./images/transcribe-system.png') } alt="Transcribe System"/>
       </p>
     </View>
   );
