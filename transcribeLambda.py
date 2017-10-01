@@ -6,13 +6,12 @@ as testing instructions are located at http://amzn.to/1LzFrj6
 For additional samples, visit the Alexa Skills Kit Getting Started guide at
 http://amzn.to/1LGWsLG
 """
-
 from __future__ import print_function
 
-
+import urllib.request
 # --------------- Helpers that build all of the responses ----------------------
 
-def build_speechlet_response(title, output, reprompt_text, should_end_session):
+def build_speechlet_response(title, output, reprompt_text, should_end_session, debug):
     return {
         'outputSpeech': {
             'type': 'PlainText',
@@ -29,7 +28,8 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
                 'text': reprompt_text
             }
         },
-        'shouldEndSession': should_end_session
+        'shouldEndSession': should_end_session,
+        'debug': debug
     }
 
 
@@ -57,8 +57,9 @@ def get_welcome_response():
     # that is not understood, they will be prompted again with this text.
     reprompt_text = "Please tell me to start or stop transcribing."
     should_end_session = False
+    debug = "  "
     return build_response(session_attributes, build_speechlet_response(
-        card_title, speech_output, reprompt_text, should_end_session))
+        card_title, speech_output, reprompt_text, should_end_session, debug))
 
 
 def handle_session_end_request():
@@ -67,8 +68,9 @@ def handle_session_end_request():
                     "Bye! "
     # Setting this to true ends the session and exits the skill.
     should_end_session = True
+    debug = "  "
     return build_response({}, build_speechlet_response(
-        card_title, speech_output, None, should_end_session))
+        card_title, speech_output, None, should_end_session, debug))
 
 
 def create_transcribe_attribute(startStop):
@@ -82,24 +84,37 @@ def set_transcribe_in_session(intent, session):
     card_title = intent['name']
     session_attributes = {}
     should_end_session = False
-
     if 'startStop' in intent['slots']:
         startStop = intent['slots']['startStop']['value']
         session_attributes = create_transcribe_attribute(startStop)
-        speech_output = "I will " + \
-                        startStop + \
-                        ". You can ask me to start or stop transcribing anytime. "
-        reprompt_text = "You can ask me to start or stop transcribing by saying, " \
-                        "start transcribing or start transcribing."
+        if startStop == "start transcribing":
+            speech_output = "I will " + \
+                            "start transcribing" + \
+                            ". You can ask me to stop transcribing anytime. "
+            reprompt_text = "You can ask me to start or stop transcribing by saying, " \
+                            "start transcribing or start transcribing."            
+            debug = "starting reading"
+            captioning = urllib.request.urlopen("https://faa580b6.ngrok.io/start").read()
+        if startStop == "stop transcribing":
+            speech_output = "I will " + \
+                            "stop transcribing." + \
+                            ". You can ask me to stop transcribing anytime."
+            reprompt_text = "You can ask me to start or stop transcribing by saying, " \
+                            "start transcribing or start transcribing."
+            debug = "stopping reading"
+            captioning = urllib.request.urlopen("https://faa580b6.ngrok.io/stop").read()           
     else:
         speech_output = "I'm not sure what you are trying to say. " \
                         "Please try again."
-        reprompt_text = "I'm not sure what you are trying to say. " \
-                        "You can tell me to start or stop transcribing by saying, " \
+        reprompt_text = "I'm not sure what you are trying to say.  " \
+                        ". You can ask me to start or stop transcribing by saying, " \
                         "start transcribing or stop transcribing."
+                        
+    #print(captioning)
     print(speech_output)
+    should_end_session = True
     return build_response(session_attributes, build_speechlet_response(
-        card_title, speech_output, reprompt_text, should_end_session))
+        card_title, speech_output, reprompt_text, should_end_session, debug))
 
 
 def get_transcribe_from_session(intent, session):
@@ -107,7 +122,7 @@ def get_transcribe_from_session(intent, session):
     reprompt_text = None
 
     if session.get('attributes', {}) and "startStop" in session.get('attributes', {}):
-        favorite_color = session['attributes']['startStop']
+        startStop = session['attributes']['startStop']
         speech_output = "You can " + startStop + \
                         ". Goodbye."
         should_end_session = True
@@ -115,15 +130,16 @@ def get_transcribe_from_session(intent, session):
         speech_output = "I'm not sure what you mean. " \
                         "Please try again."
         should_end_session = False
+        debug = "   "
 
     # Setting reprompt_text to None signifies that we do not want to reprompt
     # the user. If the user does not respond or says something that is not
     # understood, the session will end.
     return build_response(session_attributes, build_speechlet_response(
-        intent['name'], speech_output, reprompt_text, should_end_session))
+        intent['name'], speech_output, reprompt_text, should_end_session, debug))
 
 
-# --------------- Events ------------------
+# --------------- Events ------------------  (Alexa is called)
 
 def on_session_started(session_started_request, session):
     """ Called when the session starts """
