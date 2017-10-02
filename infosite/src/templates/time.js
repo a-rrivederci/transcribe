@@ -1,3 +1,8 @@
+/**
+ * created/ 01 OCT 2017
+ * author/ eeshiken
+ */
+
 import React, { Component } from 'react';
 
 class Datetime extends Component {
@@ -66,9 +71,9 @@ class Datetime extends Component {
 
 function Time(props) {
     return (
-        <header>
+        <dateheader>
             <Datetime />
-        </header>
+        </dateheader>
     )
 }
 

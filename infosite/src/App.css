@@ -1,3 +1,8 @@
+/*
+  created/ 01 OCT 2017
+  author/ eeshiken
+*/
+
 /* Main Css */
 div#container {
   width: 100vh;
@@ -13,8 +18,8 @@ div#footer {
   height: fit-content
 }
 
-header {
-  display: flex;
+dateheader {
+  display: none; /* change to flex to enable dateheader * eeshiken */
   height: 10vh;
   align-items: center;
   justify-content: center;
@@ -30,15 +35,8 @@ div#datetime {
   font-weight: 100;
 }
 
-ld {
-  height: fit-content;
-  color:#339966;
-  font-size: 100px;
-  font-family: 'Audiowide', sans-serif;
-}
-
 headerbg {
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,8 +45,20 @@ headerbg {
   background-size: cover;
 }
 
+ld {
+  height: fit-content;
+  color:#339966;
+  font-size: 100px;
+  font-family: 'Audiowide', sans-serif;
+}
+
 subheader {
-  font-size: 25px;
+  border-radius: 3px;
+  padding: 5px;
+  background: rgba(0,0,0,0.5);
+  color: orange;
+  font-size: 23px;
+  font-weight: 100;
 }
 
 hd {
