@@ -1,3 +1,4 @@
+![alt text](https://github.com/ItsNotABugItsAFeature/transcribe/blob/master/transcribe_logo.png)
 # Transcribe 
 Transcribe is a service which provides captioning services for presenters.
 
@@ -23,3 +24,5 @@ Recieves start and stop signal from server to start and stop transcribing microp
 
 ## Mobile App :iphone:
 Recieves text from server and then displays text as subtitles in augmented reality. App uses camera on back of phone for the augmented reality.
+
+![alt text](https://github.com/ItsNotABugItsAFeature/transcribe/blob/master/infosite/src/images/transcribe-system.png)
