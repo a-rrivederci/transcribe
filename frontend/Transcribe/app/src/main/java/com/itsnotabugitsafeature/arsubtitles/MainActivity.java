@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     {
         try {
             //try to connect to the socket
-            mSocket = IO.socket("https://1d496ef7.ngrok.io");
+            mSocket = IO.socket("https://transcribe-backend.herokuapp.com/");
         } catch (URISyntaxException e) {}
 
     }
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    captionsTextView.setText( (String) args[0]);
+                    captionsTextView.setText( args[0].toString());
                 }
             });
         }
