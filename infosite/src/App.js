@@ -1,3 +1,8 @@
+/**
+ * created/ 01 OCT 2017
+ * author/ eeshiken
+ */
+
 import React, { Component } from 'react';
 import './App.css';
 
@@ -18,9 +23,9 @@ function Inspiration(props) {
     <View>
       <hd>Inspiration</hd>
       <p>
-        Transcribe stemmed from a process we noticed was missing during lectures and conferences.
-        Closed Captioning is a service provided for movies and entertainment to allow for people who are visually imparied partake in the program and subtitles for media in other languages than ones own.
-        We wanted to combine the worlds of captioning and learning by facilitating real-time continuous speech conversion and displaying.
+      Transcribe stemmed from a process we noticed was missing during lectures and conferences. 
+      Captioning is a service provided for movies and entertainment which allows for people who are audibly impaired take part. 
+      We wanted to combine the worlds of captioning and learning by real-time continuous speech conversion available on any device.
       </p>
     </View>
   );

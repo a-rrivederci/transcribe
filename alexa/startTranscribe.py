@@ -53,13 +53,12 @@ def get_welcome_response():
     speech_output = "I will " + \
                     "start transcribing" + \
                     ". You can ask me to stop transcribing anytime. "
-    reprompt_text = "You can ask me to start or stop transcribing by saying, " \
-                    "start transcribing or start transcribing."            
+    reprompt_text = "  "            
     debug = "starting reading"
-    captioning = urllib.request.urlopen("https://567334d1.ngrok.io/start").read()
+    captioning = urllib.request.urlopen("https://1d496ef7.ngrok.io/start").read()
     #print(captioning)
     print(speech_output)
-    should_end_session = True
+    should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session, debug))
 
@@ -84,13 +83,9 @@ def set_transcribe_in_session(intent, session):
     card_title = intent['name']
     session_attributes = {}
     should_end_session = False
-    speech_output = "I will " + \
-                    "start transcribing" + \
-                    ". You can ask me to stop transcribing anytime. "
-    reprompt_text = "You can ask me to start or stop transcribing by saying, " \
-                    "start transcribing or start transcribing."            
+    speech_output = "  "
+    reprompt_text = " "            
     debug = "starting reading"
-    captioning = urllib.request.urlopen("https://567334d1.ngrok.io/start").read()
     #print(captioning)
     print(speech_output)
     should_end_session = True
@@ -104,8 +99,7 @@ def get_transcribe_from_session(intent, session):
 
     if session.get('attributes', {}) and "startTrans" in session.get('attributes', {}):
         startTrans = session['attributes']['startTrans']
-        speech_output = "You can " + startTrans + \
-                        ". Goodbye."
+        speech_output = "  "
         should_end_session = True
     else:
         speech_output = "I'm not sure what you mean. " \
