@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 
 import View from './templates/view';
-import Time from './templates/time';
 
 function Header(props) {
   return(
     <View id="header">
-      <Time />
       <headerbg><ld>TRANSCRIBE</ld><subheader>Breaking the Boundaries of Speech-to-Text Services</subheader></headerbg>
     </View>
   );

@@ -1,33 +1,16 @@
 /* Main Css */
-div#container {
+#container {
   width: 100vh;
 }
 
-div.views {
+.views {
   display: block;
   height: 100vh;
   background:#fff;
 }
 
-div#footer {
+#footer {
   height: fit-content
-}
-
-header {
-  display: flex;
-  height: 10vh;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  color: #339966;
-  background: rgba(0,0,0,0.8);
-}
-
-div#datetime {
-  font-family: 'Audiowide', cursive;
-  color: #fff/*rgba(0,0,0,0.6)*/;
-  font-size: 13px;
-  font-weight: 100;
 }
 
 ld {
@@ -49,6 +32,10 @@ headerbg {
 
 subheader {
   font-size: 25px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 3px;
 }
 
 hd {
@@ -70,9 +57,9 @@ p {
   justify-content:center;
 }
 
-p#img {
-  padding-top: 10px;
-  height: 70vh;
+img {
+  height: fit-content;
+  width: fit-content;
 }
 
 footer {
